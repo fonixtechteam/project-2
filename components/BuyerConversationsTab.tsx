@@ -7,7 +7,7 @@ interface BuyerConversationsTabProps {
 }
 
 export default function BuyerConversationsTab({ buyerData }: BuyerConversationsTabProps) {
-  const [selectedThread, setSelectedThread] = useState(null);
+  const [selectedThread, setSelectedThread] = useState<number | null>(null);
 
   const conversations = [
     {

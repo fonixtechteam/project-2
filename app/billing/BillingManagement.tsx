@@ -550,12 +550,12 @@ export default function BillingManagement() {
                         </div>
                       </td>
                       <td className="py-4 px-6">
-                        <button
-                          onClick={() => handleViewOrder(invoice.orderId)}
+                        <Link
+                          href={`/orders/${invoice.orderId}`}
                           className="font-medium text-blue-600 hover:text-blue-700 cursor-pointer"
                         >
                           {invoice.orderId}
-                        </button>
+                        </Link>
                       </td>
                       <td className="py-4 px-6">
                         <div className="text-sm text-gray-700">{invoice.invoiceDate}</div>
@@ -583,7 +583,7 @@ export default function BillingManagement() {
                             <i className="ri-eye-line text-lg"></i>
                           </button>
                           <button
-                            onClick={() => handleDownloadInvoice(invoice)}
+                            onClick={() => handleDownloadInvoice(invoice.id)}
                             className="w-8 h-8 flex items-center justify-center text-gray-400 hover:text-gray-600 cursor-pointer"
                             title="Download Invoice"
                           >

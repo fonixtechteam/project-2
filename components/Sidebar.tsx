@@ -7,11 +7,13 @@ import Link from 'next/link';
 export default function Sidebar() {
   const [activeItem, setActiveItem] = useState('Dashboard');
   const [currentPath, setCurrentPath] = useState('');
-  const [pathname, setPathname] = useState(window.location.pathname);
+  const [pathname, setPathname] = useState('');
 
   useEffect(() => {
-    const pathname = window.location.pathname;
-    setPathname(pathname);
+    if (typeof window !== 'undefined') {
+      const pathname = window.location.pathname;
+      setPathname(pathname);
+    }
   }, []);
 
   const menuItems = [
