@@ -1,5 +1,6 @@
 
 import BrandManagement from './BrandManagement';
+import { use } from 'react';
 
 export async function generateStaticParams() {
   return [
@@ -9,6 +10,7 @@ export async function generateStaticParams() {
   ];
 }
 
-export default function BrandPage({ params }: { params: { id: string } }) {
-  return <BrandManagement brandId={params.id} />;
+export default function BrandPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  return <BrandManagement brandId={id} />;
 }

@@ -1,5 +1,6 @@
 
 import BuyerDetailView from './BuyerDetailView';
+import { use } from 'react';
 
 export async function generateStaticParams() {
   return [
@@ -12,6 +13,7 @@ export async function generateStaticParams() {
   ];
 }
 
-export default function BuyerDetailPage({ params }: { params: { id: string } }) {
-  return <BuyerDetailView buyerId={params.id} />;
+export default function BuyerDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  return <BuyerDetailView buyerId={id} />;
 }
